@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :books,only: [:show, :index, :create, :edit, :update, :destroy] do
-    resource :favorites, only: [:create, :destroy]
-
     resources :book_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
 
   root to: 'homes#top'
